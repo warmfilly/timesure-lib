@@ -19,3 +19,11 @@ class Category(TimesureBase):
         return f'{self.id}|{self.name}|{self.description}|{self.creation_time}'
 
 
+class Activity(TimesureBase):
+    __tablename__ = 'activities'
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str]
+    description: Mapped[Optional[str]]
+    creation_time: Mapped[int]
+
