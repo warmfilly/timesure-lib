@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, text, MetaData, Table, Column, String, Integer
 from typing import List
 
-from .objects import TimesureBase, Category
+from .objects import TimesureBaseObject, Category
 from .managers import CategoryManager
 from .stores import TimesureStore
 
@@ -16,5 +16,5 @@ class TimesureService():
         #self.activities = ActivityManager(db_path)
 
     def initialize_db(self):
-        TimesureBase.metadata.create_all(self.store.engine)
+        TimesureBaseObject.metadata.create_all(self.store.engine)
 

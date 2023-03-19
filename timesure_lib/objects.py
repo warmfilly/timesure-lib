@@ -3,11 +3,13 @@ from sqlalchemy import String, Integer
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 
-class TimesureBase(DeclarativeBase):
+class TimesureBaseObject(DeclarativeBase):
     pass
+    
 
 
-class Category(TimesureBase):
+
+class Category(TimesureBaseObject):
     __tablename__ = 'categories'
 
     id: Mapped[int] = mapped_column(primary_key=True)
@@ -19,7 +21,7 @@ class Category(TimesureBase):
         return f'{self.id}|{self.name}|{self.description}|{self.creation_time}'
 
 
-class Activity(TimesureBase):
+class Activity(TimesureBaseObject):
     __tablename__ = 'activities'
 
     id: Mapped[int] = mapped_column(primary_key=True)
